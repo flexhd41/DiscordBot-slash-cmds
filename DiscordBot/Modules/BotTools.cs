@@ -11,6 +11,73 @@ using DiscordBot.Helper;
 using DiscordBot.Models;
 using Interactivity;
 
+client.ready += Client_ready;
+
+...
+
+public async task client_ready()
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("rec");
+    globalCommand.WithDescription("Recreates Fork related role and channel");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("stop");
+    globalCommand.WithDescription("Stops a specific Minecraft server");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("start");
+    globalCommand.WithDescription("Starts a specific Minecraft server");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("notify");
+    globalCommand.WithDescription("Subscribe to Player join/leave events");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("dnotify");
+    globalCommand.WithDescription("Unsubscribes from Player join/leave events");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("auth");
+    globalCommand.WithDescription("Links your Discord server to your Fork app");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("help");
+    globalCommand.WithDescription("Lists all available commands");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("leave");
+    globalCommand.WithDescription("Bot will leave this Discord server");
+
+var globalCommand = new SlashCommandBuilder();
+    globalCommand.WithName("unauth");
+    globalCommand.WithDescription("Unlinks your Fork app from this Discord server");
+
+
+ try
+    {
+        
+        // With global commands we don't need the guild.
+        await client.CreateGlobalApplicationCommandAsync(globalCommand.Build());
+        // Using the ready event is a simple implementation for the sake of the example. Suitable for testing and development.
+        // For a production bot, it is recommended to only run the CreateGlobalApplicationCommandAsync() once for each command.
+    }
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    catch(ApplicationCommandException exception);
+    {
+        // If our command was invalid, we should catch an ApplicationCommandException. This exception contains the path of the error as well as the error message. You can serialize the Error field in the exception to get a visual of where your error is.
+        var json = JsonConvert.SerializeObject(exception.Error, Formatting.Indented);
+
+        // You can send this error somewhere or just print it to the console, for this example we're just going to print it.
+        Console.WriteLine(json);
+}
 
 namespace DiscordBot
 {
